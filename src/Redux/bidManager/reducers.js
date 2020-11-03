@@ -1,7 +1,7 @@
-import auction from '../../common/static-data/auction'
-import { ActionTypes } from '../bidManager/actionTypes.js';
+import { ActionTypes } from './actionTypes';
+
 const defaultState = {
-    bids: [],    
+    bids: [],
 }
 
 const bidManagerReducer = (state = defaultState, action) => {
@@ -9,10 +9,10 @@ const bidManagerReducer = (state = defaultState, action) => {
         case ActionTypes.BM_BIDS_UPDATE:
             return {
                 ...state,
-                bids: auction.bids,
+                bids: action.bids,
             }
-        default: return state;
-
+            default:
+                return state;
     }
 }
 

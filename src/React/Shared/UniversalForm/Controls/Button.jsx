@@ -1,34 +1,49 @@
 import React from 'react';
-import styled from 'styled-components'
-
-const Button = ({children,onClick,type='button',className=''}) => {
-
+import styled from 'styled-components';
+const Button = ({
+    children, 
+    onClick, 
+    type='button', 
+    className='',
+    unstyled=false,
+}) => {
+    const ButtonStyled = (unstyled) ? ButtonUnstyled : ButtonWithStyles;
     return (
-        <ButtonStyled className={`Button ${className}`} 
-                      onClick={ onClick } 
-                      type= { type }>
-            {children}
+        <ButtonStyled 
+            className={`Button ${className}`}
+            onClick={ onClick }
+            type={ type }
+        >
+            { children } 
         </ButtonStyled>
-    )
+    );
 }
-
 export default Button;
-
-const ButtonStyled = styled.button`
-    background-color: orange;
+const ButtonWithStyles = styled.button`
+    background-color: #f19e37;
     display: inline-block;
-    marging: 10px;
+    margin: 10px;
     padding: 10px 15px;
     border-radius: 5px;
     border: none;
     outline: none;
-    box-shadow: 5px 5px 5px rgb(0,0,0,.4)
-    
+    box-shadow: 5px 5px 5px rgba(0,0,0,.3);
     &:active {
-        box-shadow: 0px 0px 5px rgb(0,0,0,.3)
+        box-shadow: 0px 0px 5px rgba(0,0,0,.3);
     }
-
     &:focus {
-        background-color: #ee5b37
-    } 
-`
+        background-color: #ee5737;
+    }
+`;
+const ButtonUnstyled = styled.button`
+    background: none;
+    color: inherit;
+    border: none;
+    padding: 0;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit;
+    &:active, &:focus {
+        outline: solid 1px blue;
+    }
+`;

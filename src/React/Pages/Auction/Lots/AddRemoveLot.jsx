@@ -1,10 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
 import { useDispatch, useSelector } from 'react-redux';
-import Button  from '../../../Shared/UniversalForm/Controls/Button';
+import Button  from 'React/Shared/UniversalForm/Controls/Button';
 
 /* Scripts ---------------------------*/
-import { addLotToBids, removeLotFromBids } from '../../../../Redux/bidManager/actions.js';
+import { addLotToBids, removeLotToBids } from 'Redux/bidManager/actions.js';
 
 const AddRemoveLot = ({lot}) => {
     const dispatch = useDispatch();
@@ -24,7 +24,7 @@ const AddRemoveLot = ({lot}) => {
     
     const handleRemoveLot = () => {
         console.log('remove');
-        dispatch(removeLotFromBids(lot));
+        dispatch(removeLotToBids(lot));
     }
 
     return (

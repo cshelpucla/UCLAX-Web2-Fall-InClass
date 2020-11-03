@@ -34,7 +34,7 @@ const Aside = () => {
 export default Aside;
 
 
-const AsideStyled = styled.div`
+const AsideStyled = styled.aside`
     img {
         max-width: 100%;
     }

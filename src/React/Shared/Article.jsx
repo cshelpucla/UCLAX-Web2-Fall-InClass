@@ -4,7 +4,7 @@ import styled from 'styled-components'
 const Article = ({children}) => {
     // functional component logic
     return (
-        <ArticleStyled>
+        <ArticleStyled className="Article">
             <h2>Article</h2>
             {children}
         </ArticleStyled>
@@ -13,5 +13,5 @@ const Article = ({children}) => {
 
 export default Article;
 
-const ArticleStyled = styled.div`
+const ArticleStyled = styled.article`
 `

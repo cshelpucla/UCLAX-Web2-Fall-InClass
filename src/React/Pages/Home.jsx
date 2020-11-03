@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components'
-import Template from '../Shared/Template.jsx'
+import Template from 'React/Shared/Template.jsx'
 
 const Home = () => {
     // functional component logic

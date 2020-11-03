@@ -3,7 +3,10 @@ import styled from 'styled-components'
 import Button from '../../../Shared/UniversalForm/Controls/Button'
 import keycode from 'keycode'
 
-const Lightbox = ({children, isOpen, onClose, headerText}) => {
+const Lightbox = ({children, 
+                   isOpen, 
+                   onClose, 
+                   headerText}) => {
     // functional component logic
  
     const stopBubbling = (e) => {

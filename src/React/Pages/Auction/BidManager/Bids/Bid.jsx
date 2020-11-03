@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components'
 import {useDispatch} from 'react-dom'
 
-import  {addBidToBids, removeBidFromBids} from '../../../../../Redux/bidManager/actions'
+import  {addLotToBids } from 'Redux/bidManager/actions'
 
 const Bid = ({bid}) => {
 
@@ -10,7 +10,7 @@ const Bid = ({bid}) => {
 
     const handleRemoveLot = (Bid) => {
         console.log("test")
-        dispatch(addBidToBids(Bid))
+        dispatch(addLotToBids(Bid))
     }
 
     // functional component logic

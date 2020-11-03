@@ -1,7 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
+
 /* Redux ---------------------------*/
 import { useSelector } from 'react-redux';
+
 /* Components ---------------------------*/
 import Bid from './Bid.jsx';
 const Bids = () => {

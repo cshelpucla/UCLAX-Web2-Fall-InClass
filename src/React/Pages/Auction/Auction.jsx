@@ -1,9 +1,12 @@
 import React from 'react';
 import styled from 'styled-components'
 import {Switch, Route} from 'react-router-dom'
+//import React, { useState, useRef, useEffect } from 'react';
 
 import Template from '../../Shared/Template.jsx'
 import BidManager from './BidManager/BidManager.jsx'
+
+import  { useSelector } from 'react-redux'
 
 import Lots from './Lots/Lots.jsx'
 import AuctionNav from './AuctionNav.jsx'
@@ -11,16 +14,17 @@ import AuctionNav from './AuctionNav.jsx'
 const Auction = () => {
     // functional component logic
 
-    
+    const { user } = useSelector((state)=> state)
 
     return (
         <AuctionStyled classname = "">
-            <Template title="Auction"></Template>
-            <AuctionNav/>
+            <Template title="Auction">
+            {    user.isLoggedIn && <AuctionNav /> }
             <Switch>
                 <Route path='/auction/bids' component={BidManager} />                    
                 <Route  path='/auction' component={Lots} exact />
             </Switch>            
+            </Template>
         </AuctionStyled>
     )
 }
