@@ -40,12 +40,16 @@ export const handleOnSubmit = (state, dispatch) => {
         const {formData, apiEndpoint, onSubmit} = state
 
         let errors = false
+        let postData = {}
+
         //validate data
         formData.forEach((field) => {
                 if (field.value.length < 1) {
                     errors = true
                     dispatch(feedbackMessageUpdate(`The ${field.id} is required`))
                 }
+
+                postData[field.id] = field.value
             }
         )
 
@@ -55,7 +59,7 @@ export const handleOnSubmit = (state, dispatch) => {
         }
         //all passes submit data 
         else {   
-            API.post(apiEndpoint, formData).then ((apiResponse) => {
+            API.post(apiEndpoint, postData).then ((apiResponse) => {
                 console.log('UF Actions: apiResponse', apiResponse)
                 onSubmit(apiResponse.data)
             });

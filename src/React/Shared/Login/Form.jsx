@@ -14,7 +14,7 @@ const Form = () => {
     const dispatch = useDispatch();
 
     const defaultData = [
-        { id: 'username', value: '', required: true, label: 'Username', type: 'text', },
+        { id: 'email', value: '', required: true, label: 'Email', type: 'text', },
         { id: 'password', value: '', required: true, label: 'Password', type: 'password', }
     ];
 
@@ -22,7 +22,7 @@ const Form = () => {
         console.log('Login Form', apiResponse);
         if (!apiResponse.errors) {
             const isLoggedIn = true;
-            const profile = apiResponse.profile;
+            const profile = apiResponse.payload.user;
             dispatch(UserActions.userAuthUpdate(isLoggedIn, profile))
         }
     }
@@ -32,7 +32,7 @@ const Form = () => {
             <UniversalForm
                 formData={ defaultData }
                 submitText='Log In'
-                apiEndpoint='/login/validate'
+                apiEndpoint='/users/login'
                 onSubmit={ handleOnSubmit }
             /> 
         </FormStyled>
