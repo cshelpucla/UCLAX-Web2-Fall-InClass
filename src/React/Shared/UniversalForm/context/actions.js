@@ -61,10 +61,10 @@ export const handleOnSubmit = (state, dispatch) => {
         else {   
             API.post(apiEndpoint, postData).then ((apiResponse) => {
                 console.log('UF Actions: apiResponse', apiResponse)
+                dispatch(feedbackMessageUpdate('Eureka, You passed our validations'))
+                dispatch(statusUpdate('success')) 
                 onSubmit(apiResponse.data)
             });
             
-            dispatch(feedbackMessageUpdate('Eureka, You passed our validations'))
-            dispatch(statusUpdate('success')) 
         }         
 }

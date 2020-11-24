@@ -20,10 +20,12 @@ const Form = () => {
 
     const handleOnSubmit = (apiResponse) => {
         console.log('Login Form', apiResponse);
-        if (!apiResponse.errors) {
+        if (apiResponse.success) {
             const isLoggedIn = true;
             const profile = apiResponse.payload.user;
             dispatch(UserActions.userAuthUpdate(isLoggedIn, profile))
+        } else {
+            console.log("cant find user" )
         }
     }
 

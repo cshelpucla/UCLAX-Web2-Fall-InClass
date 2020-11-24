@@ -12,7 +12,7 @@ const LogOut = () => {
 
     const handleLogout = () => {
         console.log('You clicked me.')
-        dispatch(UserActions.userAuthUpdate(false,{}))
+        dispatch(UserActions.logOut())
     }
 
     return (
