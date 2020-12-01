@@ -4,6 +4,7 @@ import styled from 'styled-components';
 
 /* Scripts */
 import * as UserActions from 'Redux/user/actions.js'
+import * as BidManagerActions from 'Redux/bidManager/actions.js'
 
 /* Component ---------------------------*/
 import UniversalForm from 'React/Shared/UniversalForm/UniversalForm.jsx';
@@ -24,6 +25,7 @@ const Form = () => {
             const isLoggedIn = true;
             const profile = apiResponse.payload.user;
             dispatch(UserActions.userAuthUpdate(isLoggedIn, profile))
+            dispatch(BidManagerActions.loadUserBids())
         } else {
             console.log("cant find user" )
         }

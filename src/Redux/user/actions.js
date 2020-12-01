@@ -1,7 +1,6 @@
-
 import { ActionTypes } from './actionTypes';
 import API from 'common/API.js';
-
+import * as BidManagerActions from '../bidManager/actions.js';
 /*===================================
 || 
 || Action Creators
@@ -17,7 +16,6 @@ export const userAuthUpdate = (isLoggedIn, profile) => {
         profile: profile,
     }
 }
-
 /*---------------------------
 | Action Dispatchers
 ---------------------------*/
@@ -25,28 +23,21 @@ export const userAuthUpdate = (isLoggedIn, profile) => {
 export const loadUser = () => {
     return (dispatch, getState) => {
         API.get('/users/isLoggedIn').then((apiResponse) => {
-
             console.log('apiResponse', apiResponse);
-
             const isLoggedIn = apiResponse.data.success;
             const profile = apiResponse.data.payload.user;
-
             dispatch(userAuthUpdate(isLoggedIn, profile));
-
+            dispatch(BidManagerActions.loadUserBids());
         });
     }
 }
-
 /* Log User Out ---------------------------*/
 export const logOut = () => {
     return (dispatch, getState) => {
         API.get('/users/logout').then((apiResponse) => {
-
             console.log('apiResponse', apiResponse);
-
             const isLoggedIn = false;
             const profile = {};
-
             dispatch(userAuthUpdate(isLoggedIn, profile));
         });
     }

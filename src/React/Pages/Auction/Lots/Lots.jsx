@@ -9,7 +9,7 @@ import Lot from './Lot.jsx';
 const Lots = () => {
     const { auction } = useSelector((state) => state);
 
-    console.log("show auction:  ",auction)
+    //console.log("show auction:  ",auction)
 
     return (
         <LotsStyled className='Lots'>
@@ -17,7 +17,7 @@ const Lots = () => {
             <div className="lots-container">
                 {
                     auction.current.lots.map((lot, idx) => {
-                        console.log("looping through lots ",lot)
+                        //console.log("looping through lots ",lot)
                         return <Lot
                                     key={ idx }
                                     lot={ lot }

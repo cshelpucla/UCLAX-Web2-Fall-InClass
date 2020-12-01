@@ -10,6 +10,7 @@ import  { useSelector } from 'react-redux'
 
 import Lots from './Lots/Lots.jsx'
 import AuctionNav from './AuctionNav.jsx'
+import BidThanks from './BidThanks.jsx'
 
 const Auction = () => {
     // functional component logic
@@ -23,6 +24,7 @@ const Auction = () => {
             <Switch>
                 <Route path='/auction/bids' component={BidManager} />                    
                 <Route  path='/auction' component={Lots} exact />
+                <Route path='/auction/thanks' component={BidThanks} />                    
             </Switch>            
             </Template>
         </AuctionStyled>

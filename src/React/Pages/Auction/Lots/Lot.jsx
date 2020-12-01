@@ -7,17 +7,17 @@ import  { useSelector } from 'react-redux'
 /* Scripts ---------------------------*/
 const Lot = ({lot, auctionID}) => {
 
-    console.log("From lot ", lot)
+    //console.log("From lot ", lot)
     const [isOpen, isOpenUpdate] = useState(false)
     const { user } = useSelector((state)=> state)
 
     const handleOnClose = () => {
-        console.log('close lightbox')
+        //console.log('close lightbox')
         isOpenUpdate(false)
     }
 
     const handleOnOpen = () => {
-        console.log('open lightbox')
+        //console.log('open lightbox')
         isOpenUpdate(true)
     }
 
